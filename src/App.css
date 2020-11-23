@@ -1,38 +1,135 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-title {
+  margin: 0 auto;
+  color: rgb(40, 48, 168);
+}
+body {
+  background-image: linear-gradient(to right bottom, #2998ff, #ff7730);
+  background-size: cover;
+  background-position: center;
+  font-family: Lato;
+  font-weight: 300;
+  height: 100vh;
+  position: relative;
+}
+#root {
+  margin-top: 50px;
+}
+.input-field {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #aaa;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 3px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.add-btn {
+  color: #fff;
+  background-color: green;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  outline: none;
+}
+.add-rst {
+  color: #fff;
+  background-color: grey;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  outline: none;
+
+}
+.all-card-wrapper {
+  width: 100%;
+}
+.input-wrapper {
+  text-align: center;
+  margin: 40px auto 80px;
+}
+.each-card {
+    background-color: #f5f5f5;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+    cursor: pointer;
+    padding: 30px 15px;
+    font-size: 18px;
+    z-index: 20;
+}
+.each-card-completed {
+  background-color: #132d9e;
+  border: 1px solid #aaa;
+  border-radius: 2px;
+  cursor: pointer;
+  color: #fff;
+  padding: 30px 15px;
+  font-size: 18px;
+  z-index: 20;
+
+}
+.completed-todos {
+  margin: 30px auto;
+}
+.completed-task {
+  margin-bottom: 20px;
+}
+.todo-app-content {
+  text-align: center;
+  padding: 30px 10px;
+  margin: 0 auto;
+}
+.btn-wrapper {
+  display: block;
+
+  padding: 30px 0;
+}
+@media (min-width: 768px) { 
+  .input-field {
+    width: 70%;
+  }
+  .todo-app-content {
+    width: 60%;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 767px) { 
+  .input-field {
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+  .todo-app-content {
+    width: 100%;
+  }
+}
+.app-instructions-wrapper {
+  position: absolute;
+  width: 400px;
+  top: 50px;
+  right: 50px;
+  box-shadow: 0 4px 40px #75b6f398;
+  border-radius: 10px;
+  padding: 15px;
+  height: 300px;
+  overflow-y: scroll;
+}
+.content-intructions p {
+  color: #fff;
+  font-size: 13px;
+}
+.content-intructions p span{
+  color: rgb(67, 47, 180);
+  font-size: 16px;
+  font-weight: bold;
+}
+.close-btn {
+  font-size: 30px;
+  color: rgb(109, 12, 12);
+}
+@media (max-width: 1199px) { 
+  .app-instructions-wrapper {
+    display: none;
   }
 }
