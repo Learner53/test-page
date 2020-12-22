@@ -151,26 +151,6 @@ class App extends Component {
             </div>
           </div>
       </div>
-        <div class="app-instructions-wrapper">
-          <h4>About The App..</h4>
-            <div class="content-intructions">
-            <p><span>+</span> A list of TODO cards where each todo is appended on creation.( ..Done)</p>
-            <p><span>+</span> Clicking on a TODO card should mark the TODO as complete and move it to the bottom
-              of the list.( ..Done)</p>
-            <p><span>+</span> The active TODO cards should appear in order of creation (most recent on top), while
-              the completed todo cards should appear in order of completion (most recent on top).(...Implemented most recent at the very first) ( ..Done)</p>
-            <p><span>+</span> A reset button on the top right corner of the App to clear all Todo(s) and return to initial
-              state.( ..Done)</p>
-            <p><span>+</span> Hitting the refresh button (including hard refresh) in the browser should not cause any
-              change in the state of the app (it should work like a regular offline app).( ..Done)</p>
-            <p><span>+</span> Create a Hash-tag feature:( ..Done)</p>
-            <p><span>+</span> Any text in todo matching the #hashtag pattern should be separately highlighted.(....Here Text contains #, has a Star symbol before Text....)( ..Done)</p>
-            <p><span>+</span> Clicking on a hashtag should act as a filter and show only Todo(s) containing that tag.</p>
-            <p><span>+</span> Hashtags can be stacked and the result should be only Todo(s) where all of them are
-              present (ex. after clicking #work I should then be able to click #back-end to see Todo(s)
-              containing both tags).(.....Not Done, Didn't understand this point...)</p>
-          </div>
-      </div>
       </div>
     );
   }
