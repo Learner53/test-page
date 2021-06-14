@@ -5,45 +5,8 @@ class App extends Component {
     super(props);
     this.state= {
       newItem: "",
-      list: [],
-      completedTodos: [],
-      completedZero: 'true'
-    }
-  }
-  componentDidMount() {
-    this.hydrateStateWithLocalStorage();
-    window.addEventListener(
-      "beforeunload",
-      this.saveStateToLocalStorage.bind(this)
-    );
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener(
-      "beforeunload",
-      this.saveStateToLocalStorage.bind(this)
-    );
-    this.saveStateToLocalStorage();
-  }
-
-  hydrateStateWithLocalStorage() {
-    for (let key in this.state) {
-      if (localStorage.hasOwnProperty(key)) {
-        let value = localStorage.getItem(key);
-
-        try {
-          value = JSON.parse(value);
-          this.setState({ [key]: value });
-        } catch (e) {
-          this.setState({ [key]: value });
-        }
-      }
-    }
-  }
-
-  saveStateToLocalStorage() {
-    for (let key in this.state) {
-      localStorage.setItem(key, JSON.stringify(this.state[key]));
+      list: [], 
+      addedItem: 'false'
     }
   }
 
@@ -53,34 +16,12 @@ class App extends Component {
       value: this.state.newItem.slice()
     }
     const list = [...this.state.list];
-    list.unshift(newItem);
-    if(newItem.value.includes("#")) {
-      newItem.value = '★ '+ newItem.value
-    }
+    list.push(newItem);
     this.setState({
       list,
-      newItem: ""
-    });
-  }
-  completedItem(id, key) {
-    const itemCompleted = {
-      id: id,
-      value: key
-    }
-    const list = [...this.state.list];
-    const todos =[...this.state.completedTodos]
-    const updatedList = list.filter(item => item.id !== id);
-    console.log(key);
-    todos.unshift(itemCompleted);
-    this.setState({ 
-      list: updatedList, 
-      completedTodos: todos,
       newItem: "",
-      completedZero: 'false'
+      addedItem: 'true'
     });
-  }
-  resetList() {
-    this.setState({list: [], completedTodos:[], completedZero: 'true' });
   }
   updateInput(key, value) {
     this.setState({
@@ -98,7 +39,7 @@ class App extends Component {
               <input
                   type="text"
                   className="input-field"
-                  placeholder="A Todo List Item..."
+                  placeholder="Add a Todo..."
                   value={this.state.newItem}
                   onChange={e => this.updateInput("newItem", e.target.value)}
                 />
@@ -110,40 +51,20 @@ class App extends Component {
                   >
                     Add Todo
                   </button>
-                  <button
-                    className="add-rst"
-                    onClick={() => this.resetList()}
-                  >
-                    Reset
-                  </button>
                 </div>
             </div>
           </div>
           <div className="all-card-wrapper">
+          <h4 className="all-todo">
+              {this.state.addedItem === 'true'  ? "List of all Todo's": ''}
+            </h4>
             <div className="row">
             {this.state.list.map(item => {
               return (
                 <div  className="col-xl-3 p-2 col-md-4 col-sm-12 text-center " key={item.id}>
                   <div className="each-card"
-                  onClick={() => this.completedItem(item.id, item.value)}
                   >
                    {item.value}
-                  </div>
-                </div>
-              );
-            })}
-            </div>
-          </div>
-          <div className="completed-todos">
-            <h4 className="completed-task">
-              {this.state.completedZero === 'false' ? "List of all Todo's Completed": ''}
-            </h4>
-          <div className="row">
-            {this.state.completedTodos.map(item => {
-              return (
-                <div  className="col-xl-3 p-2 col-md-4 col-sm-12 text-center ">
-                  <div className="each-card-completed">
-                  &#10003; {item.value}
                   </div>
                 </div>
               );
