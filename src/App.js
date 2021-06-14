@@ -6,7 +6,7 @@ class App extends Component {
     this.state= {
       newItem: "",
       list: [], 
-      addedItem: 'false'
+      addedItem: false
     }
   }
 
@@ -20,7 +20,7 @@ class App extends Component {
     this.setState({
       list,
       newItem: "",
-      addedItem: 'true'
+      addedItem: true
     });
   }
   updateInput(key, value) {
@@ -56,7 +56,7 @@ class App extends Component {
           </div>
           <div className="all-card-wrapper">
           <h4 className="all-todo">
-              {this.state.addedItem === 'true'  ? "List of all Todo's": ''}
+              {this.state.addedItem  ? "List of all Todo's": ''}
             </h4>
             <div className="row">
             {this.state.list.map(item => {
